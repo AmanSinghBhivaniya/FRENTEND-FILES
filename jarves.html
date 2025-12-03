@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS AI Assistant</title>
+    <link rel="stylesheet" href="jarves.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Main Interface -->
+        <div class="jarvis-interface">
+            <!-- Status Display -->
+            <div class="status-panel">
+                <div class="status-item">
+                    <span class="status-label">SYSTEM STATUS:</span>
+                    <span class="status-value" id="systemStatus">ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">VOICE RECOGNITION:</span>
+                    <span class="status-value" id="voiceStatus">READY</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">POWER LEVEL:</span>
+                    <span class="status-value" id="powerLevel">100%</span>
+                </div>
+            </div>
+
+            <!-- Visual Display -->
+            <div class="visual-display">
+                <div class="pulse-animation" id="pulse"></div>
+                <div class="wave-animation" id="wave"></div>
+            </div>
+
+            <!-- Command Display -->
+            <div class="command-display">
+                <div class="command-history" id="commandHistory">
+                    <div class="message jarvis-message">
+                        <span class="timestamp" id="currentTime"></span>
+                        <span class="text">JARVIS online. How can I assist you today?</span>
+                    </div>
+                </div>
+                <div class="input-display">
+                    <span class="input-prefix">>></span>
+                    <span class="input-text" id="inputText">Listening...</span>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <button id="voiceToggle" class="control-btn active">
+                    <span class="btn-icon">🎤</span>
+                    <span class="btn-text">VOICE ACTIVE</span>
+                </button>
+                <button id="clearBtn" class="control-btn">
+                    <span class="btn-icon">🗑️</span>
+                    <span class="btn-text">CLEAR LOG</span>
+                </button>
+                <button id="settingsBtn" class="control-btn">
+                    <span class="btn-icon">⚙️</span>
+                    <span class="btn-text">SETTINGS</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>JARVIS SETTINGS</h2>
+                    <span class="close-btn">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="voiceSelect">VOICE TYPE:</label>
+                        <select id="voiceSelect" class="setting-select">
+                            <option value="male">Male Voice</option>
+                            <option value="female">Female Voice</option>
+                            <option value="robotic">Robotic Voice</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="themeSelect">INTERFACE THEME:</label>
+                        <select id="themeSelect" class="setting-select">
+                            <option value="default">Default Blue</option>
+                            <option value="red">Iron Man Red</option>
+                            <option value="green">Matrix Green</option>
+                            <option value="purple">Ultron Purple</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="wakeWord">WAKE WORD:</label>
+                        <input type="text" id="wakeWord" value="Jarvis" class="setting-input">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="activationSound" preload="auto">
+        <source src="assets/sounds/activation.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="responseSound" preload="auto">
+        <source src="assets/sounds/response.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="jarves.js"></script>
+</body>
+
+</html>
